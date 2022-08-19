@@ -18,7 +18,13 @@ class Product:
         self.name = Entry(frame)
         self.name.grid(row = 1, column = 1)
 
+        #price input
+        Label(frame, text = 'Price: ').grid(row = 2, column = 0)
+        self.price = Entry(frame)
+        self.price.grid(row = 2, column = 1)
+
 if __name__ == '__main__':
     window = Tk()
     application = Product(window)
     window.mainloop()
+
