@@ -16,6 +16,7 @@ class Product:
         #name input
         Label(frame, text = 'Name: ').grid(row = 1, column = 0)
         self.name = Entry(frame)
+        self.name.focus()
         self.name.grid(row = 1, column = 1)
 
         #price input
@@ -26,6 +27,11 @@ class Product:
         #button add product
         ttk.Button(frame, text = 'Save Product').grid(row = 3, columnspan = 2, sticky = W + E)
 
+        #table
+        self.tree = ttk.Treeview(height = 10, columns = 2)
+        self.tree.grid(row = 4, column = 0, columnspan = 2)
+
+        
 if __name__ == '__main__':
     window = Tk()
     application = Product(window)
