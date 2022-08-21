@@ -45,11 +45,15 @@ class Product:
         return result
 
     def get_products(self):
+        records = self.tree.get_children()
+        for e in records:
+            self.tree.delete(e)
         query = 'SELECT * FROM product ORDER BY name DESC'
         db_rows = self.run_query(query)
-        print(db_rows)
+        for i in db_rows:
+            self.tree.insert('',0,text=i[1], values = i[2])
+            
 
-        
 if __name__ == '__main__':
     window = Tk()
     application = Product(window)
