@@ -1,3 +1,5 @@
+#!/usr/bin/env python
+# -*- coding: utf-8 -*-
 from tkinter import ttk
 from tkinter import *
 import sqlite3
