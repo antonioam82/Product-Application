@@ -27,7 +27,7 @@ class Product:
         self.price.grid(row = 2, column = 1)
 
         #button add product
-        ttk.Button(frame, text = 'Save Product').grid(row = 3, columnspan = 2, sticky = W + E)
+        ttk.Button(frame, text = 'Save Product', command=self.add_product).grid(row = 3, columnspan = 2, sticky = W + E)
 
         #table
         self.tree = ttk.Treeview(height = 10, columns = 2)
@@ -52,6 +52,18 @@ class Product:
         db_rows = self.run_query(query)
         for i in db_rows:
             self.tree.insert('',0,text=i[1], values = i[2])
+
+    def validation(self):
+        return len(self.name.get()) != 0 and len(self.price.get()) != 0
+            
+
+    def add_product(self):
+        if self.validation():
+            print(self.name.get())
+            print(self.price.get())
+        else:
+            print("required")
+            
             
 
 if __name__ == '__main__':
