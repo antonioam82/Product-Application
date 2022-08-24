@@ -31,6 +31,9 @@ class Product:
         #button add product
         ttk.Button(frame, text = 'Save Product', command=self.add_product).grid(row = 3, columnspan = 2, sticky = W + E)
 
+        self.message = Label(text="", fg = "red")
+        self.message.grid(row=3, column=0, columnspan=2, sticky=W + E)
+        
         #table
         self.tree = ttk.Treeview(height = 10, columns = 2)
         self.tree.grid(row = 4, column = 0, columnspan = 2)
@@ -64,9 +67,11 @@ class Product:
             query = 'INSERT INTO product VALUES(NULL, ?, ?)'
             parameters = (self.name.get(), self.price.get())
             self.run_query(query, parameters)
-            print("Data saved")
+            self.message['text'] = 'Product {} added Successfully'.format(self.name.get())
+            self.name.delete(0, END)
+            self.price.delete(0, END)
         else:
-            print("required")
+            self.message['text'] = 'Name and price are required.'
         self.get_products()
             
 
