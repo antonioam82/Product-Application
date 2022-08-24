@@ -40,6 +40,9 @@ class Product:
         self.tree.heading('#0', text = 'Name', anchor = CENTER)
         self.tree.heading('#1', text = 'Price', anchor = CENTER)
 
+        ttk.Button(text = 'DELETE').grid(row = 5, column = 0, sticky = W + E)
+        ttk.Button(text = 'EDIT').grid(row = 5, column = 1, sticky = W + E)
+        
         self.get_products()
 
     def run_query(self, query, parameters = ()):
@@ -73,6 +76,9 @@ class Product:
         else:
             self.message['text'] = 'Name and price are required.'
         self.get_products()
+
+    def delete_product(self):
+        pass
             
 
 if __name__ == '__main__':
