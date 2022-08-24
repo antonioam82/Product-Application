@@ -34,7 +34,6 @@ class Product:
         self.message = Label(text="", fg = "red")
         self.message.grid(row=3, column=0, columnspan=2, sticky=W + E)
         
-        #table
         self.tree = ttk.Treeview(height = 10, columns = 2)
         self.tree.grid(row = 4, column = 0, columnspan = 2)
         self.tree.heading('#0', text = 'Name', anchor = CENTER)
