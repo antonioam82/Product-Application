@@ -100,10 +100,13 @@ class Product:
         old_price = self.tree.item(self.tree.selection())['values'][0]
         self.edit_wind = Toplevel()
         self.edit_wind.title = 'Edit Product'
+
+        # old name
+        Label(self.edit_wind, text = 'Old Name: ').grid(row = 0, column = 1)
+        Entry(self.edit_wind, textvariable = StringVar(self.edit_wind, value = name), state = 'readonly').grid(row=0,column=2)
         
 if __name__ == '__main__':
     window = Tk()
     application = Product(window)
     window.mainloop()
-
 
