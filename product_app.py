@@ -79,7 +79,7 @@ class Product:
     def delete_product(self):
         self.message['text'] = ''
         try:
-            self.tree.item(self.tree.selection())['text']
+            self.tree.item(self.tree.selection())['text'][0]
         except IndexError as e:
             self.message['text'] = 'Please Select a Record'
             return
