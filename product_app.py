@@ -1,4 +1,4 @@
-#!/usr/bin/env python
+usr/bin/env python
 # -*- coding: utf-8 -*-
 from tkinter import ttk
 from tkinter import *
@@ -118,6 +118,17 @@ class Product:
         Label(self.edit_wind, text = 'New Name').grid(row = 3, column = 1)
         new_price = Entry(self.edit_wind)
         new_price.grid(row = 3, column = 2)
+
+
+        Button(self.edit_wind, text = 'update', command = lambda: self.edit_records)
+
+    def edit_record(self, new_name, name, new_price, old_price):
+        query = 'UPDATE product SET name = ?, price = ? WHERE name = ? and price = ?'
+        parameters = (new_name, new_price, name, old_price)
+        self.run_query(query, parameters)
+        self.edit_wind.destroy()
+        self.message['text'] = 'Record {} updated Successfully'.format(name)
+        self.get_product()
         
 if __name__ == '__main__':
     window = Tk()
