@@ -104,6 +104,11 @@ class Product:
         # old name
         Label(self.edit_wind, text = 'Old Name: ').grid(row = 0, column = 1)
         Entry(self.edit_wind, textvariable = StringVar(self.edit_wind, value = name), state = 'readonly').grid(row=0,column=2)
+
+        # new name
+        Label(self.edit_wind, text = 'New Name').grid(row = 1, column = 1)
+        new_name = Entry(self.edit_wind)
+        new_name.grid(row = 1, column = 2)
         
 if __name__ == '__main__':
     window = Tk()
